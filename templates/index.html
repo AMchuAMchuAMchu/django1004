@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>😮😮😮</title>
+</head>
+<style>
+    hr{
+        height: 10px;
+        background-color: blue;
+    }
+    table{
+        border: solid blue 3px;
+        border-spacing: 0;
+    }
+    th,td{
+        border: solid blue 3px;
+    }
+</style>
+<body>
+<form action="/" method="post">
+    用户名:<input type="text" name="username">
+    密&emsp;码:<input type="password" name="password">
+    <button type="submit">提交</button>
+</form>
+<hr>
+<table>
+    <tr>
+        <th>用户名</th>
+        <th>密&emsp;码</th>
+    </tr>
+    {% for item in data  %}
+        <tr>
+            <td>{{ item.username }}</td>
+            <td>{{ item.password }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
