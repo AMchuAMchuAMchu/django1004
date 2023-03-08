@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from myapp import models
 
@@ -13,17 +13,20 @@ user_list = [
 
 
 # 通过cookie判断当前进入该网页的用户是否有权限访问该页面...
-def cookie_judge(request):
-    username01 = request.COOKIES.get('username')
-    password01 = request.COOKIES.get('password')
+def session_judge(request):
+    username01 = request.session.get('username')
+    password01 = request.session.get('password')
+    print('username01>',username01)
+    print('password01>',password01)
     person01 = models.UserInfo.objects.filter(username=username01, password=password01)
+    print('>>>>',person01)
     count = person01.count()
     return count
 
 
 def index(request):
     global user_list
-    count = cookie_judge(request)
+    count = session_judge(request)
     print('>>>',count)
     if count > 0:
         if request.method == 'POST':
@@ -50,15 +53,15 @@ def login(request):
 
 
 def handle_login(request):
-    count = cookie_judge(request)
+    count = session_judge(request)
     if count > 0:
-        return render(request, 'index.html')
+        return redirect(to='/index/',request=request)
     username = request.POST.get('username')
     password = request.POST.get('password')
     record = models.UserInfo.objects.filter(username=username, password=password)
     if record.count() > 0:
-        response = HttpResponse("ok")
-        response.set_cookie(key='username',value=record[0].username)
-        response.set_cookie(key='password',value=record[0].password)
-        return render(response,'index.html')
+        request.session['username']=username
+        request.session['password']=password
+        request.session.set_expiry(value=60)
+        return redirect(to='/index/',request=request)
     return render(request,'u_error.html')
