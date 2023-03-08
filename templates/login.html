@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>🎃🎃🎃欢迎来到登录页面!!!!</title>
+    <script type="module" src="../static/js/axios.js"></script>
 </head>
 <style>
     h1 {
@@ -12,7 +13,7 @@
     }
 
     .bg01 {
-        background-image: url('../static/login_bg01.jpg');
+        background-image: url('../static/img/login_bg01.jpg');
         width: 1442px;
         height: 700px;
         opacity: 0.7;
@@ -27,12 +28,12 @@
         background-color: aqua;
         margin: 0 auto;
         border-radius: 10px;
-        background-image: url('../static/login_register_bg01.jpg');
+        background-image: url('../static/img/login_register_bg01.jpg');
         background-size: 100%;
         overflow: hidden;
     }
 
-    .uname,.pwd{
+    .uname, .pwd {
         font-size: 20px;
         font-weight: bold;
     }
@@ -43,41 +44,58 @@
         margin: 68px auto;
         overflow: hidden;
     }
-    .button_rg{
+
+    .button_rg {
         width: 100px;
         height: 100px;
         margin-left: 156px;
         margin-top: 35px;
     }
-    button{
+
+    button {
         border-radius: 5px;
         border: 2px solid #6e3ee8;
     }
-    .submit_01{
+
+    .submit_01 {
         font-size: 15px;
         font-weight: bold;
     }
 </style>
 
 <body>
-<h1>欢迎来到登录页面🎃🎃🎃...</h1>
+<h1>欢迎刑侦科的监视官们!!🎃🎃🎃...</h1>
 <div class="bg01">
     <div class="login">
         <div class="uname_pwd">
             <form action="/handle_login/" method="post">
-                <span class="uname">用户名:</span><input type="text" name="username"><br>
-                <span class="pwd">密&emsp;码:</span><input type="password" name="password"><br>
+                <span class="uname">用户名:</span><input id="username_input" type="text" name="username"><br>
+                <span class="pwd">密&emsp;码:</span><input id="password_input" type="password" name="password"><br>
                 <div class="button_rg">
-                    <button type="submit">
-                          <span class="submit_01">
-                              提交😄
-                          </span>
+                    <button id="button_submit" type="submit">
+                                                  <span class="submit_01">
+                        提交😄
+                                                  </span>
                     </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    window.onload = function () {
+        var button_submit = document.querySelector('#button_submit')
+        var username_input = document.querySelector('#username_input')
+        var password_input = document.querySelector('#password_input')
+        console.log('>>>>>>>')
+        {#这里的话是希望能够加一个登录成功之后的小窗口的效果,但是的话需要动态判断,但是用了axios也是不行的说.....待解决部分#}
+        button_submit.addEventListener('click', function () {
+            alert('LLLLLLLLLL')
+        })
 
+    }
+
+
+</script>
 </body>
 </html>
