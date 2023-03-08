@@ -21,5 +21,5 @@ from myapp import views
 urlpatterns = [
     path('index/',views.index),
     path('',views.login),
-    # path('',views.index),
+    path('handle_login/',views.handle_login),
 ]

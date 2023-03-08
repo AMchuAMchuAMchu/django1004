@@ -2,18 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>🎃🎃🎃欢迎来到登录页面...</title>
+    <title>🎃🎃🎃欢迎来到登录页面!!!!</title>
 </head>
 <style>
-    .bg01{
-        width: 100%;
-        height: 100%;
+    h1 {
+        text-align: center;
+        background-color: #7125e3;
+        border-radius: 10px;
+    }
+
+    .bg01 {
+        background-image: url('../static/login_bg01.jpg');
+        width: 1442px;
+        height: 700px;
+        opacity: 0.7;
+        margin: 5px auto;
+        overflow: hidden;
+        background-position: right -10px;
+    }
+
+    .login {
+        width: 384px;
+        height: 216px;
+        background-color: aqua;
+        margin: 0 auto;
+        border-radius: 10px;
+        background-image: url('../static/login_register_bg01.jpg');
+        background-size: 100%;
+        overflow: hidden;
+    }
+
+    .uname,.pwd{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .uname_pwd {
+        width: 238px;
+        height: 289px;
+        margin: 68px auto;
+        overflow: hidden;
+    }
+    .button_rg{
+        width: 100px;
+        height: 100px;
+        margin-left: 156px;
+        margin-top: 35px;
+    }
+    button{
+        border-radius: 5px;
+        border: 2px solid #6e3ee8;
+    }
+    .submit_01{
+        font-size: 15px;
+        font-weight: bold;
     }
 </style>
+
 <body>
 <h1>欢迎来到登录页面🎃🎃🎃...</h1>
 <div class="bg01">
-    <img src="../static/login_bg01.jpg" alt="">
+    <div class="login">
+        <div class="uname_pwd">
+            <form action="/handle_login/" method="post">
+                <span class="uname">用户名:</span><input type="text" name="username"><br>
+                <span class="pwd">密&emsp;码:</span><input type="password" name="password"><br>
+                <div class="button_rg">
+                    <button type="submit">
+                          <span class="submit_01">
+                              提交😄
+                          </span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>
