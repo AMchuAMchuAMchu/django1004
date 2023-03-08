@@ -5,15 +5,17 @@
     <title>😮😮😮</title>
 </head>
 <style>
-    hr{
+    hr {
         height: 10px;
         background-color: blue;
     }
-    table{
+
+    table {
         border: solid blue 3px;
         border-spacing: 0;
     }
-    th,td{
+
+    th, td {
         border: solid blue 3px;
     }
 </style>
@@ -29,7 +31,7 @@
         <th>用户名</th>
         <th>密&emsp;码</th>
     </tr>
-    {% for item in data  %}
+    {% for item in data %}
         <tr>
             <td>{{ item.username }}</td>
             <td>{{ item.password }}</td>
